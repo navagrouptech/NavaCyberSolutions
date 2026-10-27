@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Page Not Found — NAVA Cyber Solutions</title>
+  <title>404 Page Not Found - NAVA Cyber Solutions</title>
   <meta name="robots" content="noindex, follow">
   <link rel="icon" type="image/png" href="nava-logo-gold1.png">
   <link rel="apple-touch-icon" href="nava-logo-gold1.png">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body style="min-height: 100vh; display: flex; flex-direction: column;">
-  <!-- Header -->
+  <!-- Header: Logo on left, Theme Toggle on right only -->
   <header class="header">
     <div class="container header-inner">
-      <a href="index.html#home" class="brand" aria-label="NAVA Cyber Solutions">
-        <img src="assets/logos/nava-logo.png" alt="NAVA Cyber Solutions Logo" class="brand-logo-img" width="120" height="40">
-        <div class="brand-text">
-          <span class="brand-title">NAVA Cyber Solutions</span>
-          <span class="brand-subtitle">Security · Innovation · Education</span>
-        </div>
+      <a href="index.html#home" class="brand" aria-label="NAVA Cyber Solutions Homepage">
+        <img src="assets/logos/nava-logo-transparent.png?v=10" alt="NAVA Cyber Solutions Logo" class="brand-logo-img" width="122" height="42" loading="eager">
       </a>
       <div class="header-actions">
-        <a href="index.html#home" class="btn btn-primary btn-sm">Return Home</a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+          <i class="ri-moon-line"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -36,19 +35,49 @@
       </p>
       <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
         <a href="index.html#home" class="btn btn-primary">Go to Homepage</a>
-        <a href="index.html#services" class="btn btn-secondary">Explore Services</a>
-        <a href="index.html#contact" class="btn btn-secondary">Contact NAVA</a>
+        <a href="index.html#services-section" class="btn btn-secondary">Explore Services</a>
+        <a href="index.html#contact-section" class="btn btn-secondary">Contact NAVA</a>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" style="padding-block: 28px;">
+  <!-- Upgraded High-Contrast Footer -->
+  <footer class="footer" style="padding-block: 40px; margin-top: auto;">
     <div class="container text-center">
-      <p style="font-size: 0.8125rem; color: #94A3B8;">
-        &copy; 2026 NAVA Cyber Solutions. Founded by ABHIRAM ALLADA. All rights reserved.
+      <div class="footer-attribution" style="align-items: center; margin-bottom: 16px;">
+        <span class="attribution-line">Founded &amp; Developed by <a href="https://iamabhiramallada.web.app/" target="_blank" rel="noopener noreferrer">Abhiram Allada</a></span>
+        <span class="attribution-line">Part of the NAVA Group • Cybersecurity: <a href="https://navacybersolutions.web.app/">NAVA Cyber Solutions</a></span>
+      </div>
+      <p style="font-size: 0.8125rem; color: #94a3b8; margin: 0;">
+        &copy; 2026 NAVA Cyber Solutions. All rights reserved.
       </p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('nava_portfolio_theme') || localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (isDark) {
+        document.body.classList.add('dark-theme');
+      }
+      const btn = document.getElementById('theme-toggle');
+      if (btn) {
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = isDark ? 'ri-sun-line' : 'ri-moon-line';
+        }
+        btn.addEventListener('click', function() {
+          const darkActive = document.body.classList.toggle('dark-theme');
+          localStorage.setItem('nava_portfolio_theme', darkActive ? 'dark' : 'light');
+          localStorage.setItem('theme', darkActive ? 'dark' : 'light');
+          if (icon) {
+            icon.className = darkActive ? 'ri-sun-line' : 'ri-moon-line';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

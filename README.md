@@ -1,14 +1,14 @@
-# NAVA Cyber Solutions — Official Website
+# NAVA Cyber Solutions - Official Website
 
 > **Secure Today. Stronger Tomorrow.**  
-> Official web platform for **NAVA Cyber Solutions** — cybersecurity consulting, secure software engineering, practical AI applications, and accessible technology education.
+> Official web platform for **NAVA Cyber Solutions** - cybersecurity consulting, secure software engineering, practical AI applications, and accessible technology education.
 
 ---
 
 ## 1. Project Overview
 
 - **Brand Name:** NAVA Cyber Solutions
-- **Founder:** **ABHIRAM ALLADA — Founder**
+- **Founder:** **ABHIRAM ALLADA - Founder**
 - **Featured Project:** [Guess Proof AI](https://guess-proof-ai.vercel.app/)
 - **Target Hosting:** Firebase Hosting (`navacybersolutions.web.app`)
 - **Visual Design Standard:** Apple-inspired minimalist polish with cybersecurity credibility.
@@ -45,7 +45,7 @@ d:/NAVA_Cyber_Solutions/
 - Global fixed/sticky glassmorphism topbar (`backdrop-filter: blur(20px)`).
 - Client-side hash routing supporting:
   - `#home`: Hero, Commitments, Intro, 6 Service Cards, Featured Project, Why NAVA, Academy Band, Contact CTA.
-  - `#about`: Company mission, vision, ethical principles, and founder card (**ABHIRAM ALLADA — Founder**).
+  - `#about`: Company mission, vision, ethical principles, and founder card (**ABHIRAM ALLADA - Founder**).
   - `#services`: Full service catalog.
   - `#service/:id`: 6 dedicated service detail views (`cybersecurity-consulting`, `web-app-security`, `secure-web-dev`, `vulnerability-assessment`, `ai-solutions`, `technical-consulting`).
   - `#projects`: Project showcase with Guess Proof AI as primary feature and roadmap for future initiatives.

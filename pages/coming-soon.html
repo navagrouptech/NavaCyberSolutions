@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introduction to Cybersecurity at RCE — Certificates Coming Soon | NAVA Cyber Solutions</title>
+  <title>Introduction to Cybersecurity at RCE - Certificates Coming Soon | NAVA Cyber Solutions</title>
   <meta name="description"
     content="Workshop Certificates for Introduction to Cybersecurity at RCE organized by NAVA Cyber Solutions will be available soon.">
   <meta name="author" content="ABHIRAM ALLADA">
@@ -12,6 +12,7 @@
   <link rel="icon" type="image/png" href="../nava-logo-gold1.png">
   <link rel="apple-touch-icon" href="../nava-logo-gold1.png">
   <link rel="stylesheet" href="../styles.css?v=6">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <style>
     .coming-soon-wrapper {
       min-height: calc(100vh - 76px - 260px);
@@ -22,14 +23,14 @@
     }
 
     .coming-soon-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius-xl);
       padding: clamp(40px, 6vw, 64px);
       max-width: 680px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 25px 60px -15px rgba(11, 22, 48, 0.12), 0 0 30px -5px rgba(199, 166, 106, 0.2);
+      box-shadow: var(--shadow-card);
       position: relative;
       overflow: hidden;
       animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -42,7 +43,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--color-navy-primary), var(--color-gold-accent), var(--color-gold-light), var(--color-navy-primary));
+      background: linear-gradient(90deg, var(--primary-color), var(--color-gold-accent), var(--color-gold-light), var(--primary-color));
     }
 
     .coming-soon-emblem-wrap {
@@ -70,7 +71,7 @@
     .coming-soon-card h1 {
       font-size: clamp(2rem, 3.5vw, 2.75rem);
       font-weight: 800;
-      color: var(--color-navy-primary);
+      color: var(--primary-color);
       letter-spacing: -0.03em;
       margin-bottom: 14px;
       line-height: 1.15;
@@ -78,7 +79,7 @@
 
     .coming-soon-card p {
       font-size: 1.0625rem;
-      color: var(--color-text-secondary);
+      color: var(--secondary-color);
       line-height: 1.65;
       margin-bottom: 32px;
       max-width: 560px;
@@ -86,8 +87,8 @@
     }
 
     .event-details-pill-box {
-      background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
-      border: 1px solid var(--color-border);
+      background: var(--badge-bg);
+      border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       padding: 20px 24px;
       margin-bottom: 36px;
@@ -99,7 +100,7 @@
       justify-content: space-between;
       align-items: center;
       padding-block: 8px;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      border-bottom: 1px solid var(--card-border);
       font-size: 0.9375rem;
     }
 
@@ -109,7 +110,7 @@
     }
 
     .event-details-pill-row small {
-      color: var(--color-text-muted);
+      color: var(--text-muted);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -117,7 +118,7 @@
     }
 
     .event-details-pill-row strong {
-      color: var(--color-navy-primary);
+      color: var(--primary-color);
       font-weight: 700;
     }
 
@@ -141,27 +142,17 @@
 </head>
 
 <body>
-  <!-- Header -->
+  <!-- Header: Logo on left, Theme Toggle on right only -->
   <header class="header">
     <div class="container header-inner">
-      <a href="../index.html#home" class="brand" aria-label="NAVA Cyber Solutions">
-        <img src="../assets/logos/nava-emblem-transparent.png?v=5" alt="NAVA Cyber Solutions Logo" class="brand-logo-img"
-          width="42" height="42">
-        <div class="brand-text">
-          <span class="brand-title">NAVA Cyber Solutions</span>
-          <span class="brand-subtitle">Security · Innovation · Education</span>
-        </div>
+      <a href="../index.html#home" class="brand" aria-label="NAVA Cyber Solutions Homepage">
+        <img src="../assets/logos/nava-logo-transparent.png?v=10" alt="NAVA Cyber Solutions Logo" class="brand-logo-img"
+          width="122" height="42" loading="eager">
       </a>
-      <nav class="nav-menu">
-        <a href="../index.html#home" class="nav-link">Home</a>
-        <a href="../index.html#about-section" class="nav-link">About Us</a>
-        <a href="../index.html#services-section" class="nav-link">Services</a>
-        <a href="../index.html#projects-section" class="nav-link">Projects</a>
-        <a href="../index.html#academy" class="nav-link active">Academy</a>
-        <a href="../index.html#contact-section" class="nav-link">Contact</a>
-      </nav>
       <div class="header-actions">
-        <a href="../index.html#contact-section" class="btn btn-primary btn-sm">Let’s Talk</a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+          <i class="ri-moon-line"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -176,7 +167,7 @@
       <div class="eyebrow" style="margin-bottom: 8px;">NAVA Cybersecurity Academy</div>
       <h1>Workshop Certificates Available Soon</h1>
       <p>
-        Digital certificates of completion for participants of <strong>Introduction to Cybersecurity at RCE</strong>, organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 – 13, 2026), are in final verification and will be published shortly.
+        Digital certificates of completion for participants of <strong>Introduction to Cybersecurity at RCE</strong>, organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 - 13, 2026), are in final verification and will be published shortly.
       </p>
 
       <div class="event-details-pill-box">
@@ -190,7 +181,7 @@
         </div>
         <div class="event-details-pill-row">
           <small>Workshop Schedule</small>
-          <strong>October 9 – 13, 2026</strong>
+          <strong>October 9 - 13, 2026</strong>
         </div>
         <div class="event-details-pill-row">
           <small>Registration Status</small>
@@ -213,18 +204,14 @@
     </div>
   </main>
 
-  <!-- Global Footer -->
+  <!-- Upgraded High-Contrast Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-pane">
           <a href="../index.html#home" class="brand" aria-label="NAVA Cyber Solutions">
-            <img src="../assets/logos/nava-emblem-transparent.png?v=5" alt="NAVA Cyber Solutions" class="brand-logo-img"
-              width="40" height="40">
-            <div class="brand-text">
-              <span class="brand-title">NAVA Cyber Solutions</span>
-              <span class="brand-subtitle" style="color: var(--color-gold-light);">Security · Innovation · Education</span>
-            </div>
+            <img src="../assets/logos/nava-logo-transparent.png?v=10" alt="NAVA Cyber Solutions" class="footer-logo-img"
+              width="133" height="46" loading="lazy">
           </a>
           <p class="footer-desc">
             Bringing together cybersecurity services, secure software development, practical AI intelligence, and
@@ -247,10 +234,18 @@
         <div>
           <h4 class="footer-heading">Company Information</h4>
           <div class="footer-links-list">
-            <span style="font-size: 0.875rem; color: #94A3B8;">Founder: ABHIRAM ALLADA</span>
-            <span style="font-size: 0.8125rem; color: #64748B;">Contact Email:</span>
-            <span style="font-size: 0.875rem; color: #CBD5E1;">navagroup.official@gmail.com</span>
+            <span class="footer-info-label">Official Email:</span>
+            <a href="mailto:navagroup.official@gmail.com" class="footer-link">navagroup.official@gmail.com</a>
+            <span class="footer-info-label" style="margin-top: 8px;">Direct Consultations:</span>
+            <span class="footer-info-text">Email &amp; Scheduled Call Consultations Available</span>
           </div>
+        </div>
+      </div>
+
+      <div class="footer-middle-bar">
+        <div class="footer-attribution">
+          <span class="attribution-line">Founded &amp; Developed by <a href="https://iamabhiramallada.web.app/" target="_blank" rel="noopener noreferrer">Abhiram Allada</a></span>
+          <span class="attribution-line">Part of the NAVA Group • Cybersecurity: <a href="https://navacybersolutions.web.app/">NAVA Cyber Solutions</a></span>
         </div>
       </div>
 
@@ -265,6 +260,32 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('nava_portfolio_theme') || localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (isDark) {
+        document.body.classList.add('dark-theme');
+      }
+      const btn = document.getElementById('theme-toggle');
+      if (btn) {
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = isDark ? 'ri-sun-line' : 'ri-moon-line';
+        }
+        btn.addEventListener('click', function() {
+          const darkActive = document.body.classList.toggle('dark-theme');
+          localStorage.setItem('nava_portfolio_theme', darkActive ? 'dark' : 'light');
+          localStorage.setItem('theme', darkActive ? 'dark' : 'light');
+          if (icon) {
+            icon.className = darkActive ? 'ri-sun-line' : 'ri-moon-line';
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 /**
- * NAVA CYBER SOLUTIONS — APPLICATION LOGIC & ROUTER
- * Author: ABHIRAM ALLADA — Founder
+ * NAVA CYBER SOLUTIONS - APPLICATION LOGIC & ROUTER
+ * Author: ABHIRAM ALLADA - Founder
  * License: Proprietary / All Rights Reserved
  */
 
@@ -101,7 +101,7 @@
       icon: 'cpu',
       title: 'AI-Powered Solutions',
       shortDesc: 'Intelligent, practical AI applications and heuristic analysis tools designed with data privacy at their core.',
-      overview: 'Building responsible machine learning and heuristic intelligence products—such as Guess Proof AI—that deliver real user utility without compromising privacy or leaking credentials.',
+      overview: 'Building responsible machine learning and heuristic intelligence products-such as Guess Proof AI-that deliver real user utility without compromising privacy or leaking credentials.',
       useCases: [
         'Client-side pattern recognition and password risk indicators.',
         'Automated document and log security classification.',
@@ -234,14 +234,14 @@
       type: 'Workshop',
       badgeClass: 'event-badge-workshop',
       category: 'Cyber Defense & Security Foundations',
-      date: 'October 9 – 13, 2026',
+      date: 'October 9 - 13, 2026',
       time: '5-Day Intensive Technical Workshop',
       format: 'Interactive Workshop & Lab Drills',
       level: 'Foundational to Practical',
       desc: 'An intensive technical workshop on "Introduction to Cybersecurity at RCE", organized by NAVA Cyber Solutions from October 9th to 13th, 2026. Covered core defensive security principles, real-world network packet inspection, web vulnerability mitigation, and hands-on defensive hardening methodologies.',
       highlights: [
         'Organized by NAVA Cyber Solutions at RCE',
-        '5 days of intensive defensive security labs & analysis (Oct 9 – 13, 2026)',
+        '5 days of intensive defensive security labs & analysis (Oct 9 - 13, 2026)',
         'Hands-on network forensics, Wireshark, and web defense',
         'Workshop certificates available soon for verified attendees'
       ],
@@ -259,10 +259,10 @@
       workshopName: 'Introduction to Cybersecurity at RCE',
       organizer: 'Organized by NAVA Cyber Solutions',
       category: 'Cybersecurity Workshop',
-      dates: 'October 9 – 13, 2026',
+      dates: 'October 9 - 13, 2026',
       credentialId: 'NAVA-CERT-RCE-2026',
       issuer: 'Organized by NAVA Cyber Solutions',
-      desc: 'Official Certificate of Completion for verified participants of "Introduction to Cybersecurity at RCE" organized by NAVA Cyber Solutions (conducted October 9 – 13, 2026).',
+      desc: 'Official Certificate of Completion for verified participants of "Introduction to Cybersecurity at RCE" organized by NAVA Cyber Solutions (conducted October 9 - 13, 2026).',
       status: 'soon',
       statusText: 'Available Soon',
       actionUrl: 'pages/coming-soon.html'
@@ -292,7 +292,7 @@
       youtube: [
         { title: 'Professor Messer N10-009 Full Course (YouTube)', url: 'https://www.youtube.com/user/professormesser' }
       ],
-      proTip: "Do 20–30 practice questions every evening alongside the videos. Don't just watch - test yourself."
+      proTip: "Do 20-30 practice questions every evening alongside the videos. Don't just watch - test yourself."
     },
     {
       id: 'step-2',
@@ -421,7 +421,7 @@
       youtube: [
         { title: 'Git and GitHub Full Course - FreeCodeCamp', url: 'https://www.youtube.com/@freecodecamp' }
       ],
-      proTip: 'By end of this week, your Python scripts from Week 5–6 should be pushed to a public GitHub repo. This becomes your portfolio.'
+      proTip: 'By end of this week, your Python scripts from Week 5-6 should be pushed to a public GitHub repo. This becomes your portfolio.'
     },
     {
       id: 'step-7',
@@ -593,119 +593,41 @@
   }
 
   function updateHeaderNav(path) {
-    const isAcademy = path === 'academy' || path.startsWith('academy/') || path.startsWith('academy-');
     const headerNavMenu = document.getElementById('headerNavMenu');
     const headerActions = document.getElementById('headerActions');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const subtitle = document.querySelector('.brand-subtitle');
 
     if (subtitle) {
-      subtitle.textContent = isAcademy ? 'NAVA Cybersecurity Academy' : 'Security · Innovation · Education';
+      subtitle.textContent = (path.startsWith('academy')) ? 'NAVA Cybersecurity Academy' : 'Security · Innovation · Education';
     }
 
+    // Clear obsolete header navigation links - navigation belongs strictly in bottom dock
     if (headerNavMenu) {
-      if (isAcademy) {
-        headerNavMenu.setAttribute('aria-label', 'Academy Navigation');
-        headerNavMenu.innerHTML = `
-          <a href="#academy" class="nav-link ${path === 'academy' || path === 'academy/home' || path === 'academy/about' || path === 'academy-about' ? 'active' : ''}">About Academy</a>
-          <a href="#academy/resources" class="nav-link ${path === 'academy/resources' || path === 'academy-resources' ? 'active' : ''}">Free Resources</a>
-          <a href="#academy/courses" class="nav-link ${path === 'academy/courses' || path === 'academy-courses' ? 'active' : ''}">Courses</a>
-          <a href="#academy/events" class="nav-link ${path === 'academy/events' || path === 'academy-events' ? 'active' : ''}">Events & Workshops</a>
-          <a href="#academy/certifications" class="nav-link ${path === 'academy/certifications' || path === 'academy-certifications' ? 'active' : ''}">Certifications</a>
-        `;
-      } else {
-        headerNavMenu.setAttribute('aria-label', 'Main Navigation');
-        headerNavMenu.innerHTML = `
-          <a href="#home" class="nav-link ${path === '' || path === 'home' ? 'active' : ''}">Home</a>
-          <a href="#about-section" class="nav-link ${path === 'about-section' || path === 'about' || path === 'about-detail' ? 'active' : ''}">About Us</a>
-          <a href="#services-section" class="nav-link ${path === 'services-section' || path === 'services' || path.startsWith('service/') ? 'active' : ''}">Services</a>
-          <a href="#projects-section" class="nav-link ${path === 'projects-section' || path === 'projects' || path.startsWith('project/') ? 'active' : ''}">Projects</a>
-          <a href="#academy" class="nav-link">Academy</a>
-          <a href="#contact-section" class="nav-link ${path === 'contact-section' || path === 'contact' ? 'active' : ''}">Contact</a>
-        `;
-      }
+      headerNavMenu.innerHTML = '';
+      headerNavMenu.style.display = 'none';
     }
 
+    // Header actions: strictly theme toggle button only
     if (headerActions) {
-      if (isAcademy) {
-        headerActions.innerHTML = `
-          <button 
-            id="mobileMenuToggle" 
-            class="mobile-toggle" 
-            aria-label="Toggle navigation menu" 
-            aria-expanded="false" 
-            aria-controls="mobileDrawer"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        `;
-      } else {
-        headerActions.innerHTML = `
-          <a href="#contact-section" class="btn btn-primary btn-sm header-cta-btn">
-            Let’s Talk
-          </a>
-          <button 
-            id="mobileMenuToggle" 
-            class="mobile-toggle" 
-            aria-label="Toggle navigation menu" 
-            aria-expanded="false" 
-            aria-controls="mobileDrawer"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        `;
-      }
-      bindMobileToggle();
+      const isDark = document.body.classList.contains('dark-theme');
+      headerActions.innerHTML = `
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+          <i class="${isDark ? 'ri-sun-line' : 'ri-moon-line'}"></i>
+        </button>
+      `;
+      bindThemeToggle();
     }
 
+    // Clear obsolete mobile drawer
     if (mobileDrawer) {
-      if (isAcademy) {
-        mobileDrawer.innerHTML = `
-          <a href="#academy" class="mobile-nav-link ${path === 'academy' || path === 'academy/home' || path === 'academy/about' || path === 'academy-about' ? 'active' : ''}">About Academy</a>
-          <a href="#academy/resources" class="mobile-nav-link ${path === 'academy/resources' || path === 'academy-resources' ? 'active' : ''}">Free Resources</a>
-          <a href="#academy/courses" class="mobile-nav-link ${path === 'academy/courses' || path === 'academy-courses' ? 'active' : ''}">Courses</a>
-          <a href="#academy/events" class="mobile-nav-link ${path === 'academy/events' || path === 'academy-events' ? 'active' : ''}">Events & Workshops</a>
-          <a href="#academy/certifications" class="mobile-nav-link ${path === 'academy/certifications' || path === 'academy-certifications' ? 'active' : ''}">Certifications</a>
-        `;
-      } else {
-        mobileDrawer.innerHTML = `
-          <a href="#home" class="mobile-nav-link ${path === '' || path === 'home' ? 'active' : ''}">Home</a>
-          <a href="#about-section" class="mobile-nav-link ${path === 'about-section' ? 'active' : ''}">About Us</a>
-          <a href="#services-section" class="mobile-nav-link ${path === 'services-section' ? 'active' : ''}">Services</a>
-          <a href="#projects-section" class="mobile-nav-link ${path === 'projects-section' ? 'active' : ''}">Projects</a>
-          <a href="#academy" class="mobile-nav-link">Academy</a>
-          <a href="#contact-section" class="mobile-nav-link ${path === 'contact-section' ? 'active' : ''}">Contact</a>
-          <div class="mobile-drawer-cta">
-            <a href="#contact-section" class="btn btn-primary" style="width: 100%;">
-              Let’s Talk
-            </a>
-          </div>
-        `;
-      }
+      mobileDrawer.innerHTML = '';
+      mobileDrawer.style.display = 'none';
     }
   }
 
   function bindMobileToggle() {
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const drawer = document.getElementById('mobileDrawer');
-    if (!toggleBtn || !drawer) return;
-    toggleBtn.onclick = () => {
-      const isOpen = drawer.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        drawer.classList.add('open');
-        toggleBtn.setAttribute('aria-expanded', 'true');
-      }
-    };
+    // No-op: header hamburger toggle removed in favor of bottom dock
   }
 
   function scrollToSection(sectionId) {
@@ -756,7 +678,7 @@
     const isSectionAnchor = homeSections.includes(path);
 
     if (path === '' || path === 'home' || isSectionAnchor) {
-      document.title = 'NAVA Cyber Solutions — Secure Today. Stronger Tomorrow.';
+      document.title = 'NAVA Cyber Solutions | Cybersecurity Services, Testing & Education';
       
       const isHomeRendered = document.getElementById('hero') !== null;
       if (!isHomeRendered) {
@@ -778,7 +700,7 @@
 
     // Dedicated Full Pages & Detail Views
     if (path === 'about' || path === 'about-detail') {
-      document.title = 'About Us — NAVA Cyber Solutions';
+      document.title = 'About Us - NAVA Cyber Solutions';
       appRoot.innerHTML = renderAboutPage();
     } else if (path === 'services') {
       window.location.hash = '#services-section';
@@ -787,7 +709,7 @@
       const serviceId = path.split('/')[1];
       const service = SERVICES.find(s => s.id === serviceId);
       if (service) {
-        document.title = `${service.title} — NAVA Cyber Solutions`;
+        document.title = `${service.title} - NAVA Cyber Solutions`;
         appRoot.innerHTML = renderServiceDetailPage(service);
       } else {
         renderNotFoundPage(appRoot);
@@ -796,40 +718,40 @@
       window.location.hash = '#projects-section';
       return;
     } else if (path === 'project/guess-proof-ai') {
-      document.title = 'Case Study: Guess Proof AI — NAVA Cyber Solutions';
+      document.title = 'Case Study: Guess Proof AI - NAVA Cyber Solutions';
       appRoot.innerHTML = renderGuessProofCaseStudyPage();
       initHeroDemo();
     } else if (path === 'academy' || path === 'academy/home' || path === 'academy/about' || path === 'academy-about' || path === 'academy-portal') {
-      document.title = 'About Academy — NAVA Cyber Solutions';
+      document.title = 'About Academy - NAVA Cyber Solutions';
       appRoot.innerHTML = renderAboutAcademyPage();
       initHeroVideoLoop();
     } else if (path === 'academy/resources' || path === 'academy-resources') {
-      document.title = 'Free Resources: Beginner Roadmap — NAVA Cyber Solutions';
+      document.title = 'Free Resources: Beginner Roadmap - NAVA Cyber Solutions';
       appRoot.innerHTML = renderFreeResourcesPage();
     } else if (path === 'academy/courses' || path === 'academy-courses') {
-      document.title = 'Courses — NAVA Cyber Solutions Academy';
+      document.title = 'Courses - NAVA Cyber Solutions Academy';
       appRoot.innerHTML = renderCoursesPage();
     } else if (path === 'academy/events' || path === 'academy-events') {
-      document.title = 'Events & Workshops — NAVA Cyber Solutions';
+      document.title = 'Events & Workshops - NAVA Cyber Solutions';
       appRoot.innerHTML = renderEventsWorkshopsPage();
     } else if (path === 'academy/certifications' || path === 'academy-certifications') {
-      document.title = 'Workshop Certifications — NAVA Cyber Solutions';
+      document.title = 'Workshop Certifications - NAVA Cyber Solutions';
       appRoot.innerHTML = renderCertificationsPage();
     } else if (path === 'coming-soon' || path === 'academy/certifications/coming-soon') {
-      document.title = 'Workshop Certificates Coming Soon — NAVA Cyber Solutions';
+      document.title = 'Workshop Certificates Coming Soon - NAVA Cyber Solutions';
       appRoot.innerHTML = renderComingSoonView();
     } else if (path.startsWith('academy/')) {
-      document.title = 'About Academy — NAVA Cyber Solutions';
+      document.title = 'About Academy - NAVA Cyber Solutions';
       appRoot.innerHTML = renderAboutAcademyPage();
       initHeroVideoLoop();
     } else if (path === 'contact') {
       window.location.hash = '#contact-section';
       return;
     } else if (path === 'privacy') {
-      document.title = 'Privacy Policy — NAVA Cyber Solutions';
+      document.title = 'Privacy Policy - NAVA Cyber Solutions';
       appRoot.innerHTML = renderPrivacyPage();
     } else if (path === 'terms') {
-      document.title = 'Terms of Service — NAVA Cyber Solutions';
+      document.title = 'Terms of Service - NAVA Cyber Solutions';
       appRoot.innerHTML = renderTermsPage();
     } else {
       renderNotFoundPage(appRoot);
@@ -842,7 +764,7 @@
   }
 
   function renderNotFoundPage(container) {
-    document.title = '404 Page Not Found — NAVA Cyber Solutions';
+    document.title = '404 Page Not Found - NAVA Cyber Solutions';
     container.innerHTML = `
       <section class="section section-white" style="min-height: 70vh; display: grid; place-items: center;">
         <div class="container-narrow text-center">
@@ -908,7 +830,6 @@
               <source src="gemini_generated_video_6cd83e58.mp4" type="video/mp4">
               Your browser does not support HTML5 video.
             </video>
-            <div class="hero-video-badge">Security By Design</div>
           </div>
         </div>
       </section>
@@ -946,11 +867,6 @@
           <div>
             <div class="eyebrow">Our Mission & Identity</div>
             <h2 class="section-title">Technology with purpose. Security with integrity.</h2>
-            <div style="margin-top: 24px;">
-              <a href="#about-detail" class="btn btn-secondary">
-                Know More <span class="btn-icon">${ICONS.arrowRight}</span>
-              </a>
-            </div>
           </div>
           <div class="about-summary-content">
             <p>
@@ -1183,7 +1099,7 @@
                   <div class="channel-icon">${ICONS.shield}</div>
                   <div class="channel-details">
                     <small>Founder & Leadership</small>
-                    <strong>ABHIRAM ALLADA — Founder</strong>
+                    <strong>ABHIRAM ALLADA - Founder</strong>
                     <div class="channel-notice" style="font-style: normal; color: var(--color-text-secondary);">NAVA Cyber Solutions</div>
                   </div>
                 </div>
@@ -1285,7 +1201,7 @@
           <div class="window-dots">
             <span></span><span></span><span></span>
           </div>
-          <div class="window-title">Guess Proof AI — Heuristic Inspector</div>
+          <div class="window-title">Guess Proof AI - Heuristic Inspector</div>
         </div>
         <div class="demo-inner">
           <div class="demo-brand">Client-Side Analysis Engine</div>
@@ -1348,14 +1264,14 @@
               <h2>Core Principles</h2>
               <ul>
                 <li><strong>Ethical Accountability:</strong> We exclusively conduct authorized, scoped evaluations with explicit written consent.</li>
-                <li><strong>Privacy by Default:</strong> We build client tools—like Guess Proof AI—with zero-knowledge architectures where sensitive user data never leaves the client's device.</li>
+                <li><strong>Privacy by Default:</strong> We build client tools-like Guess Proof AI-with zero-knowledge architectures where sensitive user data never leaves the client's device.</li>
                 <li><strong>Empirical Honesty:</strong> We provide unvarnished, factual assessments without alarmism or inflated claims.</li>
                 <li><strong>Educational Empowerment:</strong> Security is most resilient when teams understand <em>why</em> vulnerabilities emerge and how defensive patterns stop them.</li>
               </ul>
 
               <h2>Our Approach to Software Development</h2>
               <p>
-                Traditional development treats security as an afterthought—a compliance checklist audited just before deployment. At NAVA Cyber Solutions, security is integrated directly into the initial wireframe, database schema, and interface design. This proactive posture minimizes technical debt and drastically curtails potential attack surfaces.
+                Traditional development treats security as an afterthought-a compliance checklist audited just before deployment. At NAVA Cyber Solutions, security is integrated directly into the initial wireframe, database schema, and interface design. This proactive posture minimizes technical debt and drastically curtails potential attack surfaces.
               </p>
 
               <!-- Founder Section -->
@@ -1363,7 +1279,7 @@
                 <div class="founder-avatar">AA</div>
                 <div class="founder-info">
                   <h4>ABHIRAM ALLADA</h4>
-                  <div class="founder-role">Founder — NAVA Cyber Solutions</div>
+                  <div class="founder-role">Founder - NAVA Cyber Solutions</div>
                   <p>
                     Leading the strategic vision, cybersecurity engineering, and digital initiatives of NAVA Cyber Solutions. Focused on developing responsible cybersecurity architectures, practical AI applications, and accessible technology education.
                   </p>
@@ -1551,7 +1467,7 @@
               <h2>Project Goals</h2>
               <ul>
                 <li>Provide instantaneous, multi-dimensional feedback on predictable password structures.</li>
-                <li>Execute 100% of the heuristic analysis in the user's browser—ensuring zero credential transmission over the network.</li>
+                <li>Execute 100% of the heuristic analysis in the user's browser-ensuring zero credential transmission over the network.</li>
                 <li>Educate users on <em>why</em> specific patterns are vulnerable, guiding them toward true entropy.</li>
               </ul>
 
@@ -1616,55 +1532,31 @@
   function renderCoursesPage() {
     return `
       ${renderAcademySubnav('courses')}
-      <section class="section section-soft" style="padding-top: 54px;">
-        <div class="container">
-          <div class="breadcrumbs">
+      <section class="section section-soft" style="padding-top: 54px; min-height: 70vh; display: flex; align-items: center;">
+        <div class="container text-center" style="max-width: 680px; margin: 0 auto;">
+          <div class="breadcrumbs" style="justify-content: center; margin-bottom: 24px;">
             <a href="#home">Home</a> <span>/</span> <a href="#academy">Academy</a> <span>/</span> Courses
           </div>
-          <div class="section-header" style="margin-bottom: 48px;">
-            <div class="eyebrow">Structured Curriculum</div>
-            <h1 class="section-title">Learning Courses</h1>
-            <p class="section-description">
-              Comprehensive technical courses covering the full cybersecurity spectrum — from password security and web application defense to ethical hacking and cloud security. All courses are currently under development.
+          <div class="courses-coming-soon-card">
+            <div style="width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; background: linear-gradient(135deg, rgba(16, 31, 59, 0.08) 0%, rgba(199, 166, 106, 0.16) 100%); border: 1.5px solid rgba(199, 166, 106, 0.4); display: grid; place-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <div class="eyebrow" style="margin-bottom: 10px;">NAVA Cybersecurity Academy</div>
+            <h1 class="section-title" style="font-size: clamp(2rem, 3.5vw, 2.6rem); margin-bottom: 14px;">Courses Coming Soon</h1>
+            <p style="font-size: 1.05rem; color: var(--secondary-color); line-height: 1.65; max-width: 520px; margin: 0 auto 28px;">
+              Our comprehensive cybersecurity learning courses and practical defensive curriculum are currently under active development. Stay tuned for our upcoming launch.
             </p>
-          </div>
-
-          <div class="resources-grid">
-            ${ACADEMY_RESOURCES.map(r => `
-              <article class="resource-card">
-                <div class="resource-card-header">
-                  <span class="resource-category">${r.category}</span>
-                  <span class="badge badge-neutral">Coming Soon</span>
-                </div>
-                <h3 class="resource-title">${r.title}</h3>
-                <p class="resource-desc">${r.desc}</p>
-                <div style="margin-top: 16px;">
-                  <h4 style="font-size: 0.8125rem; font-weight: 700; color: var(--color-navy-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Core Modules</h4>
-                  <ul style="list-style: none; padding: 0; margin: 0;">
-                    ${r.modules.map(m => `
-                      <li style="position: relative; padding-left: 18px; margin-bottom: 6px; color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.5;">
-                        <span style="position: absolute; left: 0; color: var(--color-gold-accent);">✔</span> ${m}
-                      </li>
-                    `).join('')}
-                  </ul>
-                </div>
-                <div class="resource-footer" style="margin-top: auto; padding-top: 16px;">
-                  <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 500;">${r.type}</span>
-                  <span class="badge badge-neutral" style="padding: 6px 14px; font-size: 0.75rem; font-weight: 600;">Coming Soon</span>
-                </div>
-              </article>
-            `).join('')}
-          </div>
-
-          <div style="text-align: center; margin-top: 48px; padding: 40px; background: var(--color-white); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
-            <div class="eyebrow" style="margin-bottom: 12px;">Stay Updated</div>
-            <h3 style="font-size: 1.5rem; color: var(--color-navy-primary); margin-bottom: 12px;">Course Launch Notifications</h3>
-            <p style="color: var(--color-text-secondary); max-width: 540px; margin: 0 auto 24px;">
-              All courses are currently in curriculum development. Contact us to receive early access and launch notifications when courses become available.
-            </p>
-            <a href="#contact-section" class="btn btn-primary">
-              Get Notified <span class="btn-icon">${ICONS.arrowRight}</span>
-            </a>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+              <a href="#contact-section?service=academy" class="btn btn-primary">
+                Get Notified on Launch <span class="btn-icon">${ICONS.arrowRight}</span>
+              </a>
+              <a href="#academy/resources" class="btn btn-secondary">
+                Explore Free Beginner Roadmap
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1687,11 +1579,11 @@
             </p>
           </div>
 
-          <!-- Section A: Learning Courses — Coming Soon -->
+          <!-- Section A: Learning Courses - Coming Soon -->
           <div style="margin-bottom: 64px;">
             <div class="section-header text-left" style="margin-bottom: 28px;">
               <div class="eyebrow">Structured Curriculum</div>
-              <h2 class="section-title" style="font-size: 2rem;">Learning Courses — Coming Soon</h2>
+              <h2 class="section-title" style="font-size: 2rem;">Learning Courses - Coming Soon</h2>
               <p class="section-description">
                 Comprehensive technical courses currently under curriculum development. All seven courses below are coming soon.
               </p>
@@ -1792,104 +1684,68 @@
           <div class="breadcrumbs">
             <a href="#home">Home</a> <span>/</span> <a href="#academy">Academy</a> <span>/</span> About Academy
           </div>
-          <div class="detail-layout-grid">
-            <article class="detail-main-article">
+          <div style="max-width: 960px; margin: 0 auto; width: 100%;">
+            <article class="detail-main-article" style="width: 100%; max-width: 100%;">
               <div class="eyebrow">About the Academy</div>
-              <h1 class="section-title">About NAVA Cybersecurity Academy</h1>
+              <h1 class="section-title">NAVA Cybersecurity Academy</h1>
               <p class="section-description">
-                NAVA Cybersecurity Academy is a learning initiative focused on making cybersecurity knowledge more accessible through beginner-friendly roadmaps, curated educational resources, and future learning opportunities.
+                NAVA Cybersecurity Academy is a specialized cybersecurity education initiative founded by ABHIRAM ALLADA and powered by NAVA Cyber Solutions. We are dedicated to making practical digital defense knowledge accessible, structured, and actionable for learners at all levels.
               </p>
 
-              <h2>Our Mission</h2>
+              <h2>What is NAVA Cybersecurity Academy?</h2>
               <p>
-                Our mission is to demystify digital security. By breaking complex topics down into transparent, progressive building blocks, we empower learners to develop true technical confidence grounded in responsible engineering principles.
+                NAVA Cybersecurity Academy is the educational wing of NAVA Cyber Solutions. It was established to provide clear, zero-cost, structured roadmaps and hands-on workshops that teach modern cybersecurity fundamentals. Instead of theoretical jargon or expensive commercial bootcamps, the Academy guides learners through real-world defense concepts, ethical testing workflows, and foundational computer science pillars.
               </p>
 
-              <h2>Our Learning Approach</h2>
+              <h2>What is Our Mission and Goal?</h2>
               <p>
-                We believe security cannot be mastered solely through passive reading or memorization. Our approach emphasizes:
-              </p>
-              <ul>
-                <li><strong>Conceptual Clarity:</strong> Understanding <em>why</em> vulnerabilities exist before learning tools.</li>
-                <li><strong>Progressive Steps:</strong> Starting with computer fundamentals, operating systems, and networking before advancing to application security.</li>
-                <li><strong>Safe Exploration:</strong> Encouraging experimentation strictly within legal, isolated practice environments.</li>
-              </ul>
-
-              <h2>Who Can Learn</h2>
-              <p>
-                The Academy is designed for anyone motivated to understand digital defense:
+                Our core mission is to <strong>democratize cybersecurity education</strong> and bridge the gap between theoretical academia and practical defensive engineering. Our goals include:
               </p>
               <ul>
-                <li><strong>Students & Beginners:</strong> Individuals taking their first steps into computer science and cybersecurity.</li>
-                <li><strong>Software Developers:</strong> Engineers looking to incorporate secure coding practices and eliminate OWASP risks.</li>
-                <li><strong>IT Professionals:</strong> System administrators and tech operators transitioning into dedicated cybersecurity roles.</li>
-                <li><strong>Curious Technologists:</strong> Anyone wanting to safeguard their personal devices and digital identity.</li>
+                <li><strong>Demystify Digital Defense:</strong> Break complex networking, cryptography, and application security concepts into transparent, step-by-step milestones.</li>
+                <li><strong>Eliminate Financial Barriers:</strong> Provide completely free, curated 12-step roadmaps utilizing vetted community tools, official documentation, and open practice labs.</li>
+                <li><strong>Foster Responsible Defenders:</strong> Instill strict professional ethics, legal authorization discipline, and security-by-design principles from the very first lesson.</li>
               </ul>
 
-              <h2>Learning Topics</h2>
+              <h2>Why Choose NAVA Academy? (Why Us?)</h2>
               <p>
-                Our educational scope encompasses foundational technical pillars:
+                With countless fragmented tutorials across the internet, NAVA Academy stands out by delivering a coherent, practitioner-led learning experience:
               </p>
               <ul>
-                <li>Networking (TCP/IP, DNS, Subnetting, OSI Model)</li>
-                <li>Security Fundamentals & CompTIA Security+ Essentials</li>
-                <li>Linux Shell, Permissions, and System Administration</li>
-                <li>Python Scripting & Security Task Automation</li>
-                <li>Network Traffic Inspection (Wireshark, TCPdump, IDS/IPS)</li>
-                <li>Git Version Control & Security Portfolio Building</li>
-                <li>Log Analysis & Enterprise SIEM Operations with ELK Stack</li>
-                <li>Cloud Security Fundamentals (AWS / Azure / GCP)</li>
-                <li>Authorized Ethical Hacking in Scoped Labs (HackTheBox / Vulnhub)</li>
+                <li><strong>Built by Active Practitioners:</strong> Curated and maintained by developers and cybersecurity specialists under NAVA Cyber Solutions who work directly with modern web security and vulnerability analysis.</li>
+                <li><strong>Practical & Hands-On First:</strong> We emphasize learning by doing - analyzing live packet captures in Wireshark, configuring Linux permissions, scripting in Python, and inspecting real web vulnerabilities.</li>
+                <li><strong>Curated Zero-Cost Pathway:</strong> You do not need to spend thousands of dollars on paywalled courses. Our 12-stage roadmap connects you to the highest-quality free labs and resources available globally.</li>
+                <li><strong>Strict Ethical Scoping:</strong> Every lesson reinforces legal boundaries, authorized testing protocols, and compliance standards necessary for enterprise careers.</li>
+                <li><strong>Modern 2025-26 Relevance:</strong> Curriculum is regularly updated to reflect modern threat models, cloud security fundamentals (AWS/Azure/GCP), and OWASP Top 10 vulnerabilities.</li>
               </ul>
 
-              <h2>Responsible and Ethical Cybersecurity</h2>
+              <h2>What is the Practical Use and Real-World Value for You?</h2>
               <p>
-                All cybersecurity knowledge shared through the Academy is intended exclusively for authorized defensive purposes, educational development, and system protection. We maintain an uncompromising ethical standard: <strong>never test, assess, or interact with any system without explicit, documented permission.</strong>
+                Whether you are aiming for a career in cybersecurity or want to build more secure software, NAVA Academy delivers tangible outcomes:
+              </p>
+              <ul>
+                <li><strong>Career Preparation:</strong> Builds the exact technical baseline required for entry-level roles such as SOC Analyst (Tier 1), Junior Penetration Tester, Security Administrator, or AppSec Engineer.</li>
+                <li><strong>Certification Groundwork:</strong> Establishes the foundational knowledge needed to succeed in industry certifications including CompTIA Security+, CEH, and eJPT.</li>
+                <li><strong>Secure Software Engineering:</strong> Software developers learn to anticipate attacker methodologies, write secure code, and proactively prevent SQL injection, XSS, and broken access controls.</li>
+                <li><strong>Personal & Enterprise Protection:</strong> Gain the knowledge to audit device configurations, identify phishing attempts, and harden personal and organizational digital infrastructure.</li>
+              </ul>
+
+              <h2>Who Can Learn at NAVA Academy?</h2>
+              <p>
+                Our curriculum is designed to be accessible and rewarding for:
+              </p>
+              <ul>
+                <li><strong>Students & Absolute Beginners:</strong> Individuals taking their first steps in tech who want a structured, step-by-step guide from zero.</li>
+                <li><strong>Software Developers:</strong> Programmers looking to master secure coding practices, API hardening, and vulnerability mitigation.</li>
+                <li><strong>IT Administrators:</strong> System operators and network technicians seeking to transition into dedicated cybersecurity roles.</li>
+                <li><strong>Security Enthusiasts:</strong> Anyone passionate about understanding digital defense, privacy protection, and ethical hacking.</li>
+              </ul>
+
+              <h2>Educational Code of Ethics & Responsible Practice</h2>
+              <p>
+                All cybersecurity knowledge, roadmaps, and lab materials provided by NAVA Cybersecurity Academy are intended strictly for educational, defensive, and authorized testing purposes. We hold an uncompromising standard: <strong>never assess, scan, or interact with any system, network, or application without explicit, documented permission.</strong>
               </p>
             </article>
-
-            <aside class="detail-sidebar">
-              <div class="sidebar-card academy-media-showcase-card">
-                <div class="academy-video-frame">
-                  <video
-                    id="academySidebarVideo"
-                    class="academy-showcase-video"
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    poster="assets/logos/nava-logo.png"
-                  >
-                    <source src="assets/videos/hero-video.mp4" type="video/mp4">
-                    <source src="gemini_generated_video_6cd83e58.mp4" type="video/mp4">
-                  </video>
-                  <div class="academy-video-emblem-badge">
-                    <img src="assets/logos/nava-emblem-transparent.png" alt="NAVA Emblem" width="36" height="36">
-                  </div>
-                </div>
-                <div class="academy-video-caption">
-                  <span class="badge badge-gold">NAVA Cyber Academy</span>
-                  <h4 style="margin-top: 10px; color: var(--color-navy-primary); font-size: 1.15rem;">Defensive Engineering</h4>
-                  <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin-bottom: 16px; line-height: 1.5;">
-                    Democratizing hands-on security knowledge with foundational roadmaps and practical defensive curriculum.
-                  </p>
-                </div>
-                <a href="#academy/resources" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">
-                  Explore Free Resources <span class="btn-icon">${ICONS.arrowRight}</span>
-                </a>
-                <a href="#academy/courses" class="btn btn-secondary" style="width: 100%;">
-                  View Upcoming Courses
-                </a>
-              </div>
-
-              <div class="sidebar-card" style="margin-top: 24px;">
-                <div class="eyebrow">Independent Guidance</div>
-                <h3>Educational Notice</h3>
-                <p>
-                  NAVA Cybersecurity Academy provides independent educational roadmaps and learning materials. It does not claim official third-party accreditation, certification authority status, or guaranteed employment outcomes.
-                </p>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
@@ -1925,7 +1781,7 @@
                   <span class="stage-number-pill">STAGE ${stage.number}</span>
                   <span class="badge badge-gold" style="font-size: 0.75rem;">${stage.targetCert}</span>
                 </div>
-                <h3 class="stage-title">${stage.stepNumber} — ${stage.title}</h3>
+                <h3 class="stage-title">${stage.stepNumber} - ${stage.title}</h3>
                 <p class="stage-summary-text">${stage.summary}</p>
                 <div>
                   <button 
@@ -2008,7 +1864,7 @@
               <span>•</span>
               <span>All Resources 100% Free</span>
               <span>•</span>
-              <span>2025–26 Modern Edition</span>
+              <span>2025-26 Modern Edition</span>
             </div>
           </div>
 
@@ -2033,7 +1889,7 @@
           <div class="breadcrumbs">
             <a href="#home">Home</a> <span>/</span> <a href="#academy">Academy</a> <span>/</span> Events & Workshops
           </div>
-          <div class="section-header">
+          <div class="section-header" style="margin-bottom: 40px;">
             <div class="eyebrow">Community & Learning</div>
             <h1 class="section-title">Events & Workshops</h1>
             <p class="section-description">
@@ -2041,84 +1897,33 @@
             </p>
           </div>
 
-          <!-- Section 1: Events & Workshops -->
-          <div style="margin-bottom: 56px;">
-            <div class="section-header text-left" style="margin-bottom: 24px;">
-              <h2 class="section-title" style="font-size: 1.75rem;">Organized Technical Workshops</h2>
-              <p class="section-description" style="font-size: 1rem;">
-                Scheduled sessions and practical security labs organized by NAVA Cybersecurity Academy.
-              </p>
-            </div>
-
-            <div class="events-cards-grid" style="grid-template-columns: 1fr; max-width: 860px; margin: 0 auto;">
-              ${ACADEMY_EVENTS.map(event => `
-                <div class="event-item-card" style="box-shadow: var(--shadow-card);">
-                  <div>
-                    <div class="event-card-header">
-                      <div class="event-tag-row">
-                        <span class="event-badge-type ${event.badgeClass}">${event.type}</span>
-                        <span class="badge badge-closed">${event.statusText}</span>
-                        <span class="badge badge-gold" style="font-weight: 700;">${event.organizer}</span>
-                      </div>
-                      <h3 class="event-card-title">${event.title}</h3>
-                      <div style="color: var(--color-gold-dark); font-weight: 600; font-size: 0.9375rem; margin-top: 4px; margin-bottom: 12px;">
-                        ${event.organizer}
-                      </div>
-                    </div>
-
-                    <div class="event-meta-grid">
-                      <div class="event-meta-item">
-                        <small>Dates</small>
-                        <strong style="color: var(--color-navy-primary);">${event.date}</strong>
-                      </div>
-                      <div class="event-meta-item">
-                        <small>Duration</small>
-                        <strong>${event.time}</strong>
-                      </div>
-                      <div class="event-meta-item">
-                        <small>Format</small>
-                        <strong>${event.format}</strong>
-                      </div>
-                      <div class="event-meta-item">
-                        <small>Status</small>
-                        <strong style="color: #64748B;">Registration Closed</strong>
-                      </div>
-                    </div>
-
-                    <p class="event-card-desc">${event.desc}</p>
-
-                    <ul class="event-highlights-list">
-                      ${event.highlights.map(h => `<li>${h}</li>`).join('')}
-                    </ul>
-                  </div>
-
-                  <div class="event-card-actions" style="margin-top: 24px;">
-                    <button class="btn btn-disabled" disabled style="width: 100%; text-align: center; cursor: not-allowed;">
-                      Registration Closed
-                    </button>
-                  </div>
+          <!-- Single Original Workshop Card -->
+          <div style="max-width: 760px; margin: 0 auto;">
+            <div class="compact-box" style="padding: 28px;">
+              <div>
+                <div class="compact-box-header" style="margin-bottom: 14px;">
+                  <span class="badge badge-gold" style="font-size: 0.75rem; font-weight: 700;">Organized by NAVA Cyber Solutions</span>
+                  <span class="badge badge-neutral" style="font-size: 0.75rem;">Concluded</span>
                 </div>
-              `).join('')}
-            </div>
-          </div>
-
-          <!-- Section 2: Concluded Sessions Archive -->
-          <div>
-            <div class="section-header text-left" style="margin-bottom: 24px;">
-              <h2 class="section-title" style="font-size: 1.75rem;">Past Sessions & Certificate Status</h2>
-              <p class="section-description" style="font-size: 1rem;">
-                Updates and archives for concluded workshops.
-              </p>
-            </div>
-
-            <div class="event-empty-box" style="padding-block: 36px; border-radius: var(--radius-lg); background: var(--color-white); border: 1px solid var(--color-border);">
-              <h4 style="color: var(--color-navy-primary); margin-bottom: 8px;">Concluded: Introduction to Cybersecurity at RCE</h4>
-              <p style="max-width: 580px; margin: 0 auto 16px; color: var(--color-text-secondary); font-size: 0.9375rem;">
-                The 5-day technical workshop <strong>"Introduction to Cybersecurity at RCE"</strong> organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 – 13, 2026) has successfully concluded. Verified attendee certificates are in final preparation and will be accessible via the Certifications portal soon.
-              </p>
-              <a href="#academy/certifications" class="btn btn-secondary btn-sm">
-                Check Workshop Certificate Status <span>${ICONS.arrowRight}</span>
-              </a>
+                <h3 class="compact-box-title" style="font-size: 1.35rem; margin-bottom: 12px;">Introduction to Cybersecurity at RCE</h3>
+                <p class="compact-box-desc" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                  5-day intensive technical workshop covering networking fundamentals, vulnerability discovery, Linux system defense, and foundational ethical hacking for university attendees.
+                </p>
+                <div class="compact-box-meta" style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.875rem;">
+                  <span><strong>Dates:</strong> October 9 - 13, 2026</span>
+                  <span><strong>Duration:</strong> 5-Day Intensive</span>
+                  <span><strong>Venue:</strong> RCE Campus</span>
+                  <span><strong>Organizer:</strong> NAVA Cyber Solutions</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="#academy/certifications" class="btn btn-primary btn-sm">
+                  View Certificate Status
+                </a>
+                <a href="#contact-section?service=academy" class="btn btn-secondary btn-sm">
+                  Contact Academy Team
+                </a>
+              </div>
             </div>
           </div>
 
@@ -2135,7 +1940,7 @@
           <div class="breadcrumbs">
             <a href="#home">Home</a> <span>/</span> <a href="#academy">Academy</a> <span>/</span> Certifications
           </div>
-          <div class="section-header" style="margin-bottom: 48px;">
+          <div class="section-header" style="margin-bottom: 40px;">
             <div class="eyebrow">Recognition & Credentials</div>
             <h1 class="section-title">Certifications & Credentials</h1>
             <p class="section-description">
@@ -2143,46 +1948,37 @@
             </p>
           </div>
 
-          <!-- Single Workshop Certificate Card -->
-          <div class="cert-single-card">
-            <div class="cert-single-inner">
-              <div class="cert-single-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="6"/>
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-                </svg>
-              </div>
-
+          <!-- Single Original Workshop Certificate Card -->
+          <div style="max-width: 760px; margin: 0 auto;">
+            <div class="compact-box" style="padding: 28px;">
               <div>
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
-                  <span class="badge badge-soon">Available Soon</span>
-                  <span class="badge badge-neutral">October 9 – 13, 2026</span>
-                  <span class="badge badge-gold" style="font-weight: 700;">Organized by NAVA Cyber Solutions</span>
+                <div class="compact-box-header" style="margin-bottom: 14px;">
+                  <span class="badge badge-soon" style="font-size: 0.75rem;">Available Soon</span>
+                  <span class="badge badge-gold" style="font-size: 0.75rem; font-weight: 700;">Organized by NAVA Cyber Solutions</span>
                 </div>
-                <h3 class="cert-single-title">Introduction to Cybersecurity at RCE</h3>
-                <p class="cert-single-desc">
-                  Official certificates of completion for participants of <strong>Introduction to Cybersecurity at RCE</strong>, organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 – 13, 2026). Digital credential verification and certificate generation are currently in final preparation.
+                <h3 class="compact-box-title" style="font-size: 1.35rem; margin-bottom: 12px;">Introduction to Cybersecurity at RCE</h3>
+                <p class="compact-box-desc" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                  Official certificates of completion for participants of the 5-day technical workshop conducted October 9 - 13, 2026. Digital credential verification and certificate generation are currently in final preparation.
                 </p>
-                <div class="cert-single-meta">
+                <div class="compact-box-meta" style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 0.875rem;">
                   <span><strong>Workshop:</strong> Introduction to Cybersecurity at RCE</span>
-                  <span>•</span>
-                  <span><strong>Organizer:</strong> Organized by NAVA Cyber Solutions</span>
-                  <span>•</span>
-                  <span><strong>Conducted:</strong> October 9 – 13, 2026</span>
-                  <span>•</span>
-                  <span><strong>Founder:</strong> ABHIRAM ALLADA</span>
+                  <span><strong>Conducted:</strong> October 9 - 13, 2026</span>
+                  <span><strong>Venue:</strong> RCE Campus</span>
+                  <span><strong>Lead:</strong> Abhiram Allada</span>
                 </div>
               </div>
-
-              <div class="cert-single-cta-wrap">
-                <a href="pages/coming-soon.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space: nowrap;">
-                  Available Soon <span class="btn-icon">${ICONS.externalLink}</span>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="pages/coming-soon.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  Available Soon
+                </a>
+                <a href="#contact-section?service=academy" class="btn btn-secondary btn-sm">
+                  Contact Academy Team
                 </a>
               </div>
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 52px;">
+          <div style="text-align: center; margin-top: 48px;">
             <p style="color: var(--color-text-secondary); margin-bottom: 14px; font-size: 0.9375rem;">
               Attended the Introduction to Cybersecurity at RCE workshop and have questions about your credential?
             </p>
@@ -2196,6 +1992,8 @@
     `;
   }
 
+
+
   function renderComingSoonView() {
     return `
       ${renderAcademySubnav('certifications')}
@@ -2208,7 +2006,7 @@
             <div class="eyebrow" style="margin-bottom: 8px;">NAVA Cybersecurity Academy</div>
             <h1 class="section-title" style="font-size: clamp(2rem, 3.5vw, 2.75rem); margin-bottom: 14px;">Workshop Certificates Available Soon</h1>
             <p style="font-size: 1.0625rem; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 30px;">
-              Digital certificates of completion for participants of <strong>Introduction to Cybersecurity at RCE</strong>, organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 – 13, 2026), are in final verification and will be published shortly.
+              Digital certificates of completion for participants of <strong>Introduction to Cybersecurity at RCE</strong>, organized by <strong>NAVA Cyber Solutions</strong> (conducted October 9 - 13, 2026), are in final verification and will be published shortly.
             </p>
             <div style="background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px 24px; margin-bottom: 32px; text-align: left;">
               <div style="display: flex; justify-content: space-between; align-items: center; padding-block: 8px; border-bottom: 1px solid rgba(226, 232, 240, 0.8); font-size: 0.9375rem;">
@@ -2221,7 +2019,7 @@
               </div>
               <div style="display: flex; justify-content: space-between; align-items: center; padding-block: 8px; border-bottom: 1px solid rgba(226, 232, 240, 0.8); font-size: 0.9375rem;">
                 <small style="color: var(--color-text-muted); font-weight: 600; text-transform: uppercase;">Workshop Schedule</small>
-                <strong style="color: var(--color-navy-primary);">October 9 – 13, 2026</strong>
+                <strong style="color: var(--color-navy-primary);">October 9 - 13, 2026</strong>
               </div>
               <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; font-size: 0.9375rem;">
                 <small style="color: var(--color-text-muted); font-weight: 600; text-transform: uppercase;">Certificate Status</small>
@@ -2299,7 +2097,7 @@
                   <div class="channel-icon">${ICONS.shield}</div>
                   <div class="channel-details">
                     <small>Founder & Leadership</small>
-                    <strong>ABHIRAM ALLADA — Founder</strong>
+                    <strong>ABHIRAM ALLADA - Founder</strong>
                     <div class="channel-notice" style="font-style: normal; color: var(--color-text-secondary);">NAVA Cyber Solutions</div>
                   </div>
                 </div>
@@ -2556,6 +2354,48 @@
       entropy.textContent = `Entropy: ~${approxEntropy} bits`;
       note.textContent = 'Excellent strength: strong length, character diversity, and zero predictable keyboard walks detected.';
     }
+  }
+
+  // Render filtered academy resource cards
+  function renderFilteredAcademyCards() {
+    const q = (searchQuery || '').toLowerCase().trim();
+    const cat = currentCategoryFilter || 'ALL';
+
+    const filtered = ACADEMY_RESOURCES.filter(r => {
+      const matchCat = (cat === 'ALL') || (r.category && r.category.toUpperCase() === cat.toUpperCase());
+      const matchQuery = !q || 
+        (r.title && r.title.toLowerCase().includes(q)) || 
+        (r.desc && r.desc.toLowerCase().includes(q)) ||
+        (r.category && r.category.toLowerCase().includes(q));
+      return matchCat && matchQuery;
+    });
+
+    if (filtered.length === 0) {
+      return `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--card-bg); border-radius: var(--radius-lg); border: 1px dashed var(--card-border);">
+          <p style="font-size: 1.1rem; color: var(--primary-color); font-weight: 700; margin-bottom: 8px;">No learning resources matched your search</p>
+          <p style="font-size: 0.9375rem; color: var(--secondary-color); margin-bottom: 16px;">Try adjusting your search terms or filter selection.</p>
+          <button id="resetAcademyFilterBtn" class="btn btn-secondary btn-sm">Reset Filters</button>
+        </div>
+      `;
+    }
+
+    return filtered.map(r => `
+      <article class="resource-card">
+        <div class="resource-card-header">
+          <span class="resource-category">${r.category}</span>
+          <span class="badge ${r.status === 'Preview' ? 'badge-gold' : 'badge-neutral'}">${r.status || 'Coming Soon'}</span>
+        </div>
+        <h3 class="resource-title">${r.title}</h3>
+        <p class="resource-desc">${r.desc}</p>
+        <div class="resource-footer" style="margin-top: auto; padding-top: 16px;">
+          <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 500;">${r.type}</span>
+          <button class="btn btn-secondary btn-sm" onclick="window.navaApp.openResourceModal('${r.id}')" style="font-size: 0.75rem; padding: 6px 12px;">
+            Preview Syllabus
+          </button>
+        </div>
+      </article>
+    `).join('');
   }
 
   // Academy Filters & Search
@@ -2828,6 +2668,11 @@
     // Mobile Drawer Toggle
     bindMobileToggle();
 
+    // Portfolio Reference UI Enhancements
+    initTheme();
+    initProgressBar();
+    initMoreSheet();
+
     // Modal background click and escape key
     const modal = document.getElementById('resourceModal');
     if (modal) {
@@ -2842,6 +2687,107 @@
       if (e.key === 'Escape') {
         closeResourceModal();
         closeMobileMenu();
+      }
+    });
+  }
+
+  /* ==========================================================================
+     THEME TOGGLE SYSTEM (PORTFOLIO REFERENCE SPEC)
+     ========================================================================== */
+  function initTheme() {
+    const savedTheme = localStorage.getItem('nava_portfolio_theme') || localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+    if (isDark) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+    updateThemeIcons(isDark);
+    bindThemeToggle();
+  }
+
+  function bindThemeToggle() {
+    const themeToggleBtns = document.querySelectorAll('#theme-toggle, .theme-btn');
+    themeToggleBtns.forEach(btn => {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        document.body.classList.toggle('dark-theme');
+        const darkActive = document.body.classList.contains('dark-theme');
+        localStorage.setItem('theme', darkActive ? 'dark' : 'light');
+        localStorage.setItem('nava_portfolio_theme', darkActive ? 'dark' : 'light');
+        updateThemeIcons(darkActive);
+      };
+    });
+  }
+
+  function updateThemeIcons(isDark) {
+    const icons = document.querySelectorAll('#theme-toggle i, .theme-btn i');
+    icons.forEach(icon => {
+      icon.className = isDark ? 'ri-sun-line' : 'ri-moon-line';
+    });
+  }
+
+  /* ==========================================================================
+     SCROLL PROGRESS BAR
+     ========================================================================== */
+  function initProgressBar() {
+    const bar = document.querySelector('.progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ==========================================================================
+     MOBILE MORE PANEL (GLASS BOTTOM SHEET)
+     ========================================================================== */
+  function initMoreSheet() {
+    const moreBtn = document.getElementById('more-btn');
+    const morePanel = document.getElementById('more-panel');
+    const moreBackdrop = document.getElementById('more-backdrop');
+    const moreCloseBtn = document.getElementById('more-close-btn');
+
+    function openSheet() {
+      if (!morePanel || !moreBackdrop) return;
+      morePanel.classList.add('open');
+      moreBackdrop.classList.add('open');
+      if (moreBtn) moreBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSheet() {
+      if (!morePanel || !moreBackdrop) return;
+      morePanel.classList.remove('open');
+      moreBackdrop.classList.remove('open');
+      if (moreBtn) moreBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (moreBtn) {
+      moreBtn.onclick = (e) => {
+        e.preventDefault();
+        if (morePanel && morePanel.classList.contains('open')) {
+          closeSheet();
+        } else {
+          openSheet();
+        }
+      };
+    }
+
+    if (moreCloseBtn) moreCloseBtn.onclick = closeSheet;
+    if (moreBackdrop) moreBackdrop.onclick = closeSheet;
+
+    document.querySelectorAll('.more-panel-item').forEach(item => {
+      item.addEventListener('click', () => {
+        closeSheet();
+      });
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && morePanel && morePanel.classList.contains('open')) {
+        closeSheet();
       }
     });
   }
@@ -2882,6 +2828,143 @@
     showToast(`Credential [${credId}] Verified Authentic: ${cert.title}`);
   }
 
+  function renderFloatingNav(path) {
+    const floatNav = document.getElementById('floatNav');
+    if (!floatNav) return;
+
+    const rawPath = (path || '').toLowerCase();
+    const isAcademy = rawPath === 'academy' || rawPath.startsWith('academy/') || rawPath.startsWith('academy-') || rawPath === 'coming-soon';
+
+    const currentNavMode = floatNav.getAttribute('data-nav-mode') || 'main';
+    const targetMode = isAcademy ? 'academy' : 'main';
+
+    if (currentNavMode !== targetMode || !floatNav.children.length) {
+      floatNav.setAttribute('data-nav-mode', targetMode);
+      if (isAcademy) {
+        floatNav.innerHTML = `
+          <a href="#home" class="float-nav-item" data-nav="main-home" aria-label="Main Website Home">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="#academy" class="float-nav-item" data-nav="academy-about" aria-label="About Academy">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+            <span>About Academy</span>
+          </a>
+          <a href="#academy/resources" class="float-nav-item" data-nav="academy-resources" aria-label="Free Resources">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            <span>Free Resources</span>
+          </a>
+          <a href="#academy/courses" class="float-nav-item" data-nav="academy-courses" aria-label="Courses">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            <span>Courses</span>
+          </a>
+          <a href="#academy/events" class="float-nav-item" data-nav="academy-events" aria-label="Events">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+              <line x1="16" x2="16" y1="2" y2="6"/>
+              <line x1="8" x2="8" y1="2" y2="6"/>
+              <line x1="3" x2="21" y1="10" y2="10"/>
+            </svg>
+            <span>Events</span>
+          </a>
+          <a href="#academy/certifications" class="float-nav-item" data-nav="academy-certifications" aria-label="Certificates">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+            <span>Certificates</span>
+          </a>
+        `;
+      } else {
+        floatNav.innerHTML = `
+          <a href="#home" class="float-nav-item" data-nav="home" aria-label="Home">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="#about-section" class="float-nav-item" data-nav="about-section" aria-label="About Us">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>About</span>
+          </a>
+          <a href="#services-section" class="float-nav-item" data-nav="services-section" aria-label="Services">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Services</span>
+          </a>
+          <a href="#projects-section" class="float-nav-item" data-nav="projects-section" aria-label="Projects">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+              <path d="M8 10v4"/>
+              <path d="M12 10v2"/>
+              <path d="M16 10v6"/>
+            </svg>
+            <span>Projects</span>
+          </a>
+          <a href="#academy" class="float-nav-item" data-nav="academy" aria-label="Academy">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+              <path d="M22 10v6"/>
+              <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+            </svg>
+            <span>Academy</span>
+          </a>
+          <a href="#contact-section" class="float-nav-item" data-nav="contact-section" aria-label="Contact">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>Contact</span>
+          </a>
+        `;
+      }
+    }
+
+    // Sync active states on floating links
+    const floatLinks = floatNav.querySelectorAll('.float-nav-item');
+    floatLinks.forEach(fl => {
+      const target = fl.getAttribute('data-nav') || '';
+      let isMatch = false;
+      if (isAcademy) {
+        if (target === 'academy-about' && (rawPath === 'academy' || rawPath === 'academy/about' || rawPath === 'academy/home' || rawPath === 'academy-about')) isMatch = true;
+        if (target === 'academy-resources' && (rawPath === 'academy/resources' || rawPath === 'academy-resources')) isMatch = true;
+        if (target === 'academy-courses' && (rawPath === 'academy/courses' || rawPath === 'academy-courses')) isMatch = true;
+        if (target === 'academy-events' && (rawPath === 'academy/events' || rawPath === 'academy-events')) isMatch = true;
+        if (target === 'academy-certifications' && (rawPath === 'academy/certifications' || rawPath === 'academy-certifications' || rawPath === 'coming-soon')) isMatch = true;
+      } else {
+        const rootPath = rawPath.split('/')[0] || 'home';
+        isMatch = (target === rawPath) || 
+                  (target === rootPath) ||
+                  (target === 'home' && (rawPath === '' || rawPath === 'home')) ||
+                  (target === 'about-section' && (rawPath === 'about-section' || rawPath === 'about-detail' || rawPath === 'about')) ||
+                  (target === 'services-section' && (rawPath === 'services-section' || rawPath === 'services' || rawPath.startsWith('service/'))) ||
+                  (target === 'projects-section' && (rawPath === 'projects-section' || rawPath === 'projects' || rawPath.startsWith('project/'))) ||
+                  (target === 'contact-section' && (rawPath === 'contact-section' || rawPath === 'contact')) ||
+                  (target === 'academy' && rawPath.startsWith('academy'));
+      }
+      fl.classList.toggle('active', isMatch);
+    });
+  }
+
   function updateActiveNav(path) {
     const rootPath = path.split('/')[0] || 'home';
     const links = document.querySelectorAll('.nav-link, .mobile-nav-link');
@@ -2904,9 +2987,18 @@
         l.classList.remove('active');
       }
     });
+
+    // Dynamically render & sync Floating Bottom Navigation Dock
+    renderFloatingNav(path);
+
+    const moreBtn = document.getElementById('more-btn');
+    if (moreBtn) {
+      const isInsideMore = path.startsWith('academy') || path === 'contact-section' || path === 'contact';
+      moreBtn.classList.toggle('has-sub-active', isInsideMore);
+    }
   }
 
-  /* Scroll Spy — continuously updates active nav link as user scrolls or reaches bottom */
+  /* Scroll Spy - continuously updates active nav link as user scrolls or reaches bottom */
   function onWindowScroll() {
     if (!scrollSpyActive || isNavClickScrolling) return;
     if (!scrollSpyTicking) {
@@ -2981,6 +3073,14 @@
       } else {
         l.classList.remove('active');
       }
+    });
+
+    const floatLinks = document.querySelectorAll('.float-nav-item[data-nav], .more-panel-item[data-nav]');
+    floatLinks.forEach(fl => {
+      const navTarget = fl.getAttribute('data-nav') || '';
+      const isMatch = (navTarget === sectionId) ||
+                      (sectionId === 'home' && (navTarget === 'home' || navTarget === ''));
+      fl.classList.toggle('active', isMatch);
     });
   }
 
@@ -3057,7 +3157,8 @@
   }
 
   function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
+    if (str == null) return '';
+    return String(str).replace(/[&<>'"]/g, 
       tag => ({
         '&': '&amp;',
         '<': '&lt;',

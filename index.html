@@ -7,12 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- SEO Primary Meta Tags -->
-  <title>NAVA Cyber Solutions — Secure Today. Stronger Tomorrow.</title>
-  <meta name="title" content="NAVA Cyber Solutions — Secure Today. Stronger Tomorrow.">
+  <link rel="canonical" href="https://navacybersolutions.web.app/">
+  <title>NAVA Cyber Solutions | Cybersecurity Services, Testing &amp; Education</title>
+  <meta name="title" content="NAVA Cyber Solutions | Cybersecurity Services, Testing &amp; Education">
   <meta name="description"
-    content="NAVA Cyber Solutions brings together cybersecurity consulting, secure technology development, AI-powered solutions, and accessible technical education. Founder: Abhiram Allada.">
+    content="NAVA Cyber Solutions provides cybersecurity consulting, website security testing, vulnerability assessment, secure web development, and cybersecurity education. Founded by Abhiram Allada.">
   <meta name="keywords"
-    content="NAVA Cyber Solutions, Abhiram Allada, cybersecurity consulting, web application security, Guess Proof AI, password security, secure coding, cyber education">
+    content="NAVA Cyber Solutions, NAVA Cyber, NAVA Cyber Solutions services, NAVA Cyber Solutions founder, Abhiram Allada, cybersecurity consulting, website security testing, website vulnerability assessment, penetration testing services, secure web development, Guess Proof AI, cybersecurity workshops, beginner cybersecurity resources">
   <meta name="author" content="ABHIRAM ALLADA">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0B1630">
@@ -24,18 +25,18 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://navacybersolutions.web.app/">
-  <meta property="og:title" content="NAVA Cyber Solutions — Secure Today. Stronger Tomorrow.">
+  <meta property="og:title" content="NAVA Cyber Solutions | Cybersecurity Services, Testing &amp; Education">
   <meta property="og:description"
-    content="Cybersecurity services, secure software development, practical AI applications, and accessible cybersecurity education.">
-  <meta property="og:image" content="assets/logos/nava-logo.png">
+    content="Cybersecurity consulting, website security testing, vulnerability assessment, Guess Proof AI, and cybersecurity education under NAVA Group.">
+  <meta property="og:image" content="https://navacybersolutions.web.app/nava-logo-gold1.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://navacybersolutions.web.app/">
-  <meta property="twitter:title" content="NAVA Cyber Solutions — Secure Today. Stronger Tomorrow.">
+  <meta property="twitter:title" content="NAVA Cyber Solutions | Cybersecurity Services, Testing &amp; Education">
   <meta property="twitter:description"
-    content="Cybersecurity services, secure software development, practical AI applications, and accessible cybersecurity education.">
-  <meta property="twitter:image" content="assets/logos/nava-logo.png">
+    content="Cybersecurity consulting, website security testing, vulnerability assessment, Guess Proof AI, and cybersecurity education under NAVA Group.">
+  <meta property="twitter:image" content="https://navacybersolutions.web.app/nava-logo-gold1.png">
 
   <!-- Structured Data: Organization & SoftwareApplication Schema -->
   <script type="application/ld+json">
@@ -46,14 +47,68 @@
         "@type": "Organization",
         "@id": "https://navacybersolutions.web.app/#organization",
         "name": "NAVA Cyber Solutions",
+        "alternateName": "NAVA Cyber",
         "url": "https://navacybersolutions.web.app/",
-        "logo": "https://navacybersolutions.web.app/assets/logos/nava-logo.png",
+        "logo": "https://navacybersolutions.web.app/nava-logo-gold1.png",
+        "description": "NAVA Cyber Solutions provides cybersecurity consulting, website vulnerability assessments, secure software development, and technical education.",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "NAVA Group"
+        },
         "founder": {
           "@type": "Person",
+          "@id": "https://iamabhiramallada.web.app/#person",
           "name": "Abhiram Allada",
-          "jobTitle": "Founder"
+          "jobTitle": "Founder & Cybersecurity Developer",
+          "url": "https://iamabhiramallada.web.app/"
         },
-        "description": "Cybersecurity consulting, secure web development, AI solutions, and technical education."
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Cybersecurity Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cybersecurity Consulting",
+                "description": "Strategic defensive advisory, threat modeling, and tailored cybersecurity planning for businesses."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Security Testing & Vulnerability Assessment",
+                "description": "Comprehensive website and application vulnerability identification, hygiene audits, and configuration review."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Secure Web Application Development",
+                "description": "Development of resilient web applications built from day one with security-first architecture."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Cybersecurity Academy & Workshops",
+                "description": "Practical cybersecurity workshops, ethical hacking foundations, and beginner learning resources."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://navacybersolutions.web.app/#website",
+        "url": "https://navacybersolutions.web.app/",
+        "name": "NAVA Cyber Solutions",
+        "publisher": {
+          "@id": "https://navacybersolutions.web.app/#organization"
+        }
       },
       {
         "@type": "SoftwareApplication",
@@ -62,20 +117,26 @@
         "applicationCategory": "SecurityApplication",
         "url": "https://guess-proof-ai.vercel.app/",
         "author": {
-          "@type": "Organization",
-          "name": "NAVA Cyber Solutions"
+          "@id": "https://navacybersolutions.web.app/#organization"
         },
-        "description": "Client-side password risk and heuristic pattern analysis application."
+        "creator": {
+          "@id": "https://iamabhiramallada.web.app/#person"
+        },
+        "description": "Client-side password risk evaluation and heuristic pattern entropy analysis tool."
       }
     ]
   }
   </script>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=6">
+  <!-- Remix Icon CDN & Stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div class="progress-bar"></div>
+
   <!-- Accessibility Skip Navigation Link -->
   <a href="#app" class="skip-link">Skip to main content</a>
 
@@ -83,63 +144,84 @@
   <header class="header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="NAVA Cyber Solutions Homepage">
-        <img src="assets/logos/nava-emblem-transparent.png?v=5" alt="NAVA Cyber Solutions Logo" class="brand-logo-img"
-          width="42" height="42" loading="eager">
-        <div class="brand-text">
-          <span class="brand-title">NAVA Cyber Solutions</span>
-          <span class="brand-subtitle">Security · Innovation · Education</span>
-        </div>
+        <img src="assets/logos/nava-logo-transparent.png?v=10" alt="NAVA Cyber Solutions Logo" class="brand-logo-img"
+          width="144" height="50" loading="eager">
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="nav-menu" id="headerNavMenu" aria-label="Main Navigation">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about-section" class="nav-link">About Us</a>
-        <a href="#services-section" class="nav-link">Services</a>
-        <a href="#projects-section" class="nav-link">Projects</a>
-        <a href="#academy" class="nav-link">Academy</a>
-        <a href="#contact-section" class="nav-link">Contact</a>
-      </nav>
-
-      <!-- Desktop Header Actions -->
+      <!-- Right Header Action: Theme Toggle Button Only -->
       <div class="header-actions" id="headerActions">
-        <a href="#contact-section" class="btn btn-primary btn-sm header-cta-btn">
-          Let’s Talk
-        </a>
-
-        <!-- Mobile Menu Hamburger Button -->
-        <button id="mobileMenuToggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-          aria-controls="mobileDrawer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+          <i class="ri-moon-line"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <nav id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation">
-    <a href="#home" class="mobile-nav-link active">Home</a>
-    <a href="#about-section" class="mobile-nav-link">About Us</a>
-    <a href="#services-section" class="mobile-nav-link">Services</a>
-    <a href="#projects-section" class="mobile-nav-link">Projects</a>
-    <a href="#academy" class="mobile-nav-link">Academy</a>
-    <a href="#contact-section" class="mobile-nav-link">Contact</a>
-    <div class="mobile-drawer-cta">
-      <a href="#contact-section" class="btn btn-primary" style="width: 100%;">
-        Let’s Talk
-      </a>
-    </div>
-  </nav>
-
   <!-- Main View Container (Managed by App Router) -->
   <main id="app" tabindex="-1">
     <!-- Dynamic views render here -->
   </main>
+
+  <!-- FLOATING GLASS BOTTOM NAVIGATION DOCK (Direct Section Navigation) -->
+  <nav class="float-nav" id="floatNav" role="navigation" aria-label="Section Navigation">
+    <a href="#home" class="float-nav-item active" data-nav="home" aria-label="Home">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+      <span>Home</span>
+    </a>
+
+    <a href="#about-section" class="float-nav-item" data-nav="about-section" aria-label="About Us">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+      <span>About</span>
+    </a>
+
+    <a href="#services-section" class="float-nav-item" data-nav="services-section" aria-label="Services">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+      <span>Services</span>
+    </a>
+
+    <a href="#projects-section" class="float-nav-item" data-nav="projects-section" aria-label="Projects">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+        <path d="M8 10v4" />
+        <path d="M12 10v2" />
+        <path d="M16 10v6" />
+      </svg>
+      <span>Projects</span>
+    </a>
+
+    <a href="#academy" class="float-nav-item" data-nav="academy" aria-label="Academy">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+        <path d="M22 10v6" />
+        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+      </svg>
+      <span>Academy</span>
+    </a>
+
+    <a href="#contact-section" class="float-nav-item" data-nav="contact-section" aria-label="Contact">
+      <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+      <span>Contact</span>
+    </a>
+  </nav>
 
   <!-- Global Footer -->
   <footer class="footer">
@@ -147,13 +229,8 @@
       <div class="footer-top-grid">
         <div class="footer-brand-pane">
           <a href="#home" class="brand" aria-label="NAVA Cyber Solutions">
-            <img src="assets/logos/nava-emblem-transparent.png?v=5" alt="NAVA Cyber Solutions" class="brand-logo-img"
-              width="40" height="40">
-            <div class="brand-text">
-              <span class="brand-title">NAVA Cyber Solutions</span>
-              <span class="brand-subtitle" style="color: var(--color-gold-light);">Security · Innovation ·
-                Education</span>
-            </div>
+            <img src="assets/logos/nava-logo-transparent.png?v=10" alt="NAVA Cyber Solutions" class="footer-logo-img"
+              width="133" height="46" loading="lazy">
           </a>
           <p class="footer-desc">
             Bringing together cybersecurity services, secure software development, practical AI intelligence, and
@@ -188,18 +265,22 @@
         <div>
           <h4 class="footer-heading">Company Information</h4>
           <div class="footer-links-list">
-            <span style="font-size: 0.875rem; color: #94A3B8;">Founder: ABHIRAM ALLADA</span>
-            <span style="font-size: 0.8125rem; color: #64748B;">Contact Email:</span>
-            <span style="font-size: 0.875rem; color: #CBD5E1;">navagroup.official@gmail.com</span>
-            <span style="font-size: 0.8125rem; color: #64748B; margin-top: 6px;">Direct Inquiries:</span>
-            <span style="font-size: 0.875rem; color: #CBD5E1;">Email & Phone Inquiries Available</span>
+            <span class="footer-info-label">Official Email:</span>
+            <a href="mailto:navagroup.official@gmail.com"
+              class="footer-link footer-email-link">navagroup.official@gmail.com</a>
+            <span class="footer-info-label" style="margin-top: 8px;">Direct Consultations:</span>
+            <span class="footer-info-text">Email &amp; Scheduled Call Consultations Available</span>
           </div>
         </div>
       </div>
 
       <div class="footer-middle-bar">
-        <div class="footer-founder-badge">
-          <strong>ABHIRAM ALLADA</strong> — Founder · NAVA Cyber Solutions
+        <div class="footer-attribution">
+          <span class="attribution-line">Founded &amp; Developed by <a href="https://iamabhiramallada.web.app/"
+              target="_blank" rel="noopener noreferrer">Abhiram Allada</a></span>
+          <span class="attribution-dot">•</span>
+          <span class="attribution-line">Part of the NAVA Group • NAVA Digital India: <a
+              href="https://navadigitalindia.web.app/">NAVA Digital India</a></span>
         </div>
       </div>
 
@@ -216,6 +297,7 @@
       </div>
     </div>
   </footer>
+
 
   <!-- Modal Component for Academy Resource Previews -->
   <div id="resourceModal" class="modal-overlay" role="dialog" aria-modal="true">
@@ -238,7 +320,7 @@
   </script>
 
   <!-- Application Logic -->
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=10"></script>
 </body>
 
 </html>
